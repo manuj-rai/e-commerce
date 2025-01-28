@@ -7,38 +7,40 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
-export class NavbarComponent implements OnInit  {
-  isActive = false;
+export class NavbarComponent implements OnInit {
+  isCartDropdownOpen = false;
+  isProfileDropdownOpen = false;
+  isMenuDropdownOpen = false;
 
   ngOnInit(): void {
-    this.triggerCartDropdownClick();
     if (localStorage.getItem('darkMode') === 'true') {
       document.body.classList.add('dark');
     }
   }
 
-  toggleClass() {
-    this.isActive = !this.isActive;
+  toggleCartDropdown(): void {
+    this.isCartDropdownOpen = !this.isCartDropdownOpen;
+    this.isProfileDropdownOpen = false; 
+    this.isMenuDropdownOpen = false;
+  }
+
+  toggleProfileDropdown(): void {
+    this.isProfileDropdownOpen = !this.isProfileDropdownOpen;
+    this.isCartDropdownOpen = false; 
+    this.isMenuDropdownOpen = false;
+  }
+
+  toggleMenuDropdown(): void {
+    this.isMenuDropdownOpen = !this.isMenuDropdownOpen;
+    this.isProfileDropdownOpen = false; 
+    this.isCartDropdownOpen = false; 
   }
 
   toggleDarkMode(): void {
     const body = document.body;
-
-    // Toggle dark mode class on the body
     body.classList.toggle('dark');
-
-    // Save the preference in localStorage
     const isDarkMode = body.classList.contains('dark');
     localStorage.setItem('darkMode', String(isDarkMode));
   }
 
-  private triggerCartDropdownClick(): void {
-    // Get the element by its ID (ensure it's not null before calling click)
-    const cartDropdownButton = document.getElementById('myCartDropdownButton1');
-
-    // Check if the element exists and then trigger the click
-    if (cartDropdownButton) {
-      cartDropdownButton.click();
-    }
-  }
 }

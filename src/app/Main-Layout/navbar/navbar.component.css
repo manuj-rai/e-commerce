@@ -1,3 +1,15 @@
 .logo-container {
     display: flex;
 }
+
+div#myCartDropdown1 {
+    position: fixed;
+    top: 65px;
+    right: -2px;
+}
+
+div#myProfileDropdown1 {
+    position: fixed;
+    top: 65px;
+    right: -2px;
+}
