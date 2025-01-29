@@ -1,15 +1,16 @@
 .logo-container {
     display: flex;
+    align-items: center;
 }
 
 div#myCartDropdown1 {
-    position: fixed;
+    position: absolute;
     top: 65px;
     right: -2px;
 }
 
 div#myProfileDropdown1 {
-    position: fixed;
+    position: absolute;
     top: 65px;
     right: -2px;
 }
