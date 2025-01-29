@@ -6,3 +6,21 @@
 body.dark {
     background-color: #111827;
 }
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px; 
+}
+
+::-webkit-scrollbar-track {
+background: rgb(31 41 55 ) 
+}
+
+::-webkit-scrollbar-thumb {
+background: #111827; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: #555; 
+}
+  
