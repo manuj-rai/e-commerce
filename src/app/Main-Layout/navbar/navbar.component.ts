@@ -13,6 +13,8 @@ export class NavbarComponent implements OnInit {
   isCartDropdownOpen = false;
   isProfileDropdownOpen = false;
   isMenuDropdownOpen = false;
+  isDrawerOpen = false;
+
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
@@ -22,22 +24,22 @@ export class NavbarComponent implements OnInit {
     }
   }
 
+  toggleDrawer() {
+    this.isDrawerOpen = !this.isDrawerOpen;
+    this.isProfileDropdownOpen = false; 
+    this.isCartDropdownOpen = false; 
+  }
+
   toggleCartDropdown(): void {
     this.isCartDropdownOpen = !this.isCartDropdownOpen;
     this.isProfileDropdownOpen = false; 
-    this.isMenuDropdownOpen = false;
+    this.isDrawerOpen = false;
   }
 
   toggleProfileDropdown(): void {
     this.isProfileDropdownOpen = !this.isProfileDropdownOpen;
     this.isCartDropdownOpen = false; 
-    this.isMenuDropdownOpen = false;
-  }
-
-  toggleMenuDropdown(): void {
-    this.isMenuDropdownOpen = !this.isMenuDropdownOpen;
-    this.isProfileDropdownOpen = false; 
-    this.isCartDropdownOpen = false; 
+    this.isDrawerOpen = false;
   }
 
   toggleDarkMode(): void {

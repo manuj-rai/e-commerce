@@ -1,5 +1,6 @@
 import { CommonModule, NgFor } from '@angular/common';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, PLATFORM_ID, Inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-carousel',
@@ -18,9 +19,13 @@ export class CarouselComponent implements OnInit, OnDestroy {
 
     currentSlide = 0;
     private intervalId!: any;
+
+    constructor(@Inject(PLATFORM_ID) private platformId: object) {}
   
     ngOnInit(): void {
-      this.startAutoSlide();
+      if (isPlatformBrowser(this.platformId)) {
+        this.startAutoSlide();
+      }
     }
 
     ngOnDestroy(): void {
@@ -37,16 +42,20 @@ export class CarouselComponent implements OnInit, OnDestroy {
     }
   
     startAutoSlide(): void {
-      this.stopAutoSlide(); // Ensure no multiple intervals are running
-      this.intervalId = window.setInterval(() => {
-        this.nextSlide();
-      }, 3000); // Slide every 3 seconds
+      if (isPlatformBrowser(this.platformId)) {
+        this.stopAutoSlide(); // Ensure no multiple intervals are running
+        this.intervalId = window.setInterval(() => {
+          this.nextSlide();
+        }, 3000); // Slide every 3 seconds
+      }
     }
   
     stopAutoSlide(): void {
       if (this.intervalId) {
-        clearInterval(this.intervalId);
-        this.intervalId = 0; // Reset the interval ID
+        if (isPlatformBrowser(this.platformId)) {
+          clearInterval(this.intervalId);
+          this.intervalId = 0; // Reset the interval ID
+        }
       }
     }
   

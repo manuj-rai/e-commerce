@@ -6,11 +6,11 @@
 div#myCartDropdown1 {
     position: absolute;
     top: 65px;
-    right: -2px;
+    right: 0;
 }
 
 div#myProfileDropdown1 {
     position: absolute;
     top: 65px;
-    right: -2px;
+    right: 0;
 }
