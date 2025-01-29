@@ -231,6 +231,7 @@
     </div>
 </nav>
 
+<div *ngIf="isDrawerOpen" class="fixed min-w-screen-xl inset-0 bg-opacity-50 backdrop-blur z-30" (click)="toggleDrawer()"></div>
 
 <!-- drawer component -->
 <div id="drawer-navigation" [ngClass]="{ '-translate-x-full': !isDrawerOpen }" class="fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform bg-white w-64 dark:bg-gray-800" tabindex="-1" aria-labelledby="drawer-navigation-label">
