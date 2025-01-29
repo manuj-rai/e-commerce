@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
@@ -8,13 +9,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent implements OnInit {
+  constructor(@Inject(PLATFORM_ID) private platformId: object) {}
   isCartDropdownOpen = false;
   isProfileDropdownOpen = false;
   isMenuDropdownOpen = false;
 
   ngOnInit(): void {
-    if (localStorage.getItem('darkMode') === 'true') {
-      document.body.classList.add('dark');
+    if (isPlatformBrowser(this.platformId)) {
+      if (localStorage.getItem('darkMode') === 'true') {
+        document.body.classList.add('dark');
+      }
     }
   }
 
