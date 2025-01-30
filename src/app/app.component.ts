@@ -5,10 +5,11 @@ import { TopSliderComponent } from "./Main-Layout/top-slider/top-slider.componen
 import { CarouselComponent } from "./Main-Layout/carousel/carousel.component";
 import { FooterComponent } from "./Main-Layout/footer/footer.component";
 import { CategoriesComponent } from "./Main-Layout/categories/categories.component";
+import { SignUpComponent } from "./Main-Layout/sign-up/sign-up.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavbarComponent, TopSliderComponent, CarouselComponent, FooterComponent, CategoriesComponent],
+  imports: [RouterOutlet, NavbarComponent, TopSliderComponent, CarouselComponent, FooterComponent, CategoriesComponent, SignUpComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
